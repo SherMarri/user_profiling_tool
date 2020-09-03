@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  userprofiler:
+    image: userprofiler:latest
+    command: [celery, -A, tasks, worker, --loglevel=info, -n, user_profiler_worker@%h]
+    restart: 'no'
+    network_mode: 'host'
